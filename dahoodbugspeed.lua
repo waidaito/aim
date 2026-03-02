@@ -22,7 +22,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
         end
 
         if isPlaying and hum.MoveDirection.Magnitude > 0 then
-            hrp.Velocity = Vector3.new(hum.MoveDirection.X * SpeedAmount, hrp.Velocity.Y, hum.MoveDirection.Z * SpeedAmount)
+            hrp.AssemblyLinearVelocity = Vector3.new(hum.MoveDirection.X * SpeedAmount, hrp.AssemblyLinearVelocity.Y, hum.MoveDirection.Z * SpeedAmount)
         end
     end
 end)
