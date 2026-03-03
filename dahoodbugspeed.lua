@@ -9,6 +9,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
     local char = lp.Character
     local hum = char and char:FindFirstChildOfClass("Humanoid")
     local hrp = char and char:FindFirstChild("HumanoidRootPart")
+    local cam = workspace.CurrentCamera
 
     if hum and hrp then
         if hum.Sit then hum.Sit = false end
@@ -22,7 +23,8 @@ game:GetService("RunService").Heartbeat:Connect(function()
         end
 
         if isPlaying and hum.MoveDirection.Magnitude > 0 then
-            hrp.AssemblyLinearVelocity = Vector3.new(hum.MoveDirection.X * SpeedAmount, hrp.AssemblyLinearVelocity.Y, hum.MoveDirection.Z * SpeedAmount)
+            hrp.Velocity = Vector3.new(hum.MoveDirection.X * SpeedAmount, hrp.Velocity.Y, hum.MoveDirection.Z * SpeedAmount)
+            cam.CameraSubject = hum
         end
     end
 end)
